@@ -47,8 +47,12 @@ export function MenuHighlights() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-          {menuItems.map((item, index) => (
-            <Card key={item.id} className={`group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white fade-in-up fade-in-up-delay-${index + 1}`}>
+          {menuItems.map((item, index) => {
+            const delayClass = index === 0 ? 'fade-in-up-delay-1' : 
+                              index === 1 ? 'fade-in-up-delay-2' : 
+                              index === 2 ? 'fade-in-up-delay-3' : 'bounce-in';
+            return (
+            <Card key={item.id} className={`group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white fade-in-up ${delayClass}`}>
               <div className="relative overflow-hidden">
                 <ImageWithFallback
                   src={item.image}
@@ -73,7 +77,8 @@ export function MenuHighlights() {
                 </p>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12 relative z-10">

@@ -68,16 +68,22 @@ export function SuccessShowcase() {
 
         {/* Success Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 relative z-10">
-          {showcaseStats.map((stat, index) => (
-            <Card key={index} className={`bg-white border-0 shadow-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up fade-in-up-delay-${index + 1}`}>
+          {showcaseStats.map((stat, index) => {
+            const animationClass = index === 0 ? 'fade-in-up fade-in-up-delay-1' : 
+                                  index === 1 ? 'fade-in-up fade-in-up-delay-2' : 
+                                  index === 2 ? 'fade-in-up fade-in-up-delay-3' : 
+                                  'bounce-in';
+            return (
+              <Card key={index} className={`bg-white border-0 shadow-lg p-6 text-center hover:shadow-xl transition-shadow ${animationClass}`}>
               <div className="text-3xl md:text-4xl font-display font-bold mb-2" style={{ color: 'var(--green-primary)' }}>
                 {stat.number}
               </div>
               <div className="font-body text-sm text-gray-600 uppercase tracking-wide">
                 {stat.label}
               </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
 
         {/* Client Testimonial Highlight */}

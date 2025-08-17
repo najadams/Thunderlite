@@ -41,8 +41,12 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative z-10">
-          {services.map((service, index) => (
-            <Card key={service.id} className={`bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-8 fade-in-up fade-in-up-delay-${index + 1}`}>
+          {services.map((service, index) => {
+            const animationClass = index === 0 ? 'slide-in-left' : 
+                                  index === 1 ? 'scale-in' : 
+                                  'slide-in-right';
+            return (
+            <Card key={service.id} className={`bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-8 ${animationClass}`}>
               <div className="text-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-green-primary flex items-center justify-center mx-auto mb-4">
                   <service.icon className="w-8 h-8 text-white" />
@@ -68,7 +72,8 @@ export function ServicesSection() {
                 Learn More
               </button>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         <div className="relative rounded-2xl overflow-hidden fade-in-up fade-in-up-delay-3 relative z-10">
