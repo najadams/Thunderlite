@@ -250,7 +250,7 @@ html {
     width: 100%;
     height: 120px;
     background: linear-gradient(135deg, var(--violet-primary) 0%, var(--violet-dark) 100%);
-    clip-path: polygon(0 70%, 15% 45%, 35% 60%, 55% 35%, 75% 55%, 90% 40%, 100% 50%, 100% 100%, 0 100%);
+    clip-path: polygon(0 65%, 10% 55%, 20% 45%, 30% 50%, 40% 40%, 50% 45%, 60% 35%, 70% 40%, 80% 30%, 90% 35%, 100% 25%, 100% 100%, 0 100%);
     z-index: 1;
     animation: waveFloat 4s ease-in-out infinite;
   }
@@ -267,7 +267,7 @@ html {
     width: 100%;
     height: 120px;
     background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-light) 100%);
-    clip-path: polygon(0 60%, 20% 35%, 40% 50%, 60% 25%, 80% 45%, 95% 30%, 100% 40%, 100% 100%, 0 100%);
+    clip-path: polygon(0 50%, 10% 40%, 20% 30%, 30% 35%, 40% 25%, 50% 30%, 60% 20%, 70% 25%, 80% 15%, 90% 20%, 100% 10%, 100% 100%, 0 100%);
     z-index: 1;
     animation: waveFloat 4s ease-in-out infinite reverse;
   }
@@ -306,6 +306,12 @@ html {
     opacity: 0;
     transform: translateX(100px);
     animation: slideInRight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  
+  .slide-in-bottom {
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideInBottom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
   
   .scale-in {
@@ -451,6 +457,17 @@ html {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
